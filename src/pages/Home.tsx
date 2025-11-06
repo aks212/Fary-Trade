@@ -3,6 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Leaf, Users, TrendingUp, Award } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import GoldDivider from "@/components/GoldDivider";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import heroImage from "@/assets/hero-ginger.jpg";
 import gingerChew from "@/assets/product-ginger-chew.jpg";
 import gingerPowder from "@/assets/product-ginger-powder.jpg";
@@ -33,6 +41,33 @@ const Home = () => {
     },
   ];
 
+  const heroSlides = [
+    {
+      image: gingerChew,
+      title: "Ginger Chew",
+      subtitle: "Pure. Organic. Powerful.",
+      description: "Chewy candy made from pure ginger root and sugar",
+    },
+    {
+      image: gingerPowder,
+      title: "Ginger Powder",
+      subtitle: "Premium Quality",
+      description: "Premium ground ginger for culinary excellence",
+    },
+    {
+      image: freshGinger,
+      title: "Fresh Ginger",
+      subtitle: "Farm to Table",
+      description: "Organic fresh ginger roots with vibrant flavor",
+    },
+    {
+      image: gingerOil,
+      title: "Ginger Oil",
+      subtitle: "Natural Wellness",
+      description: "Pure essential oil for wellness and aromatherapy",
+    },
+  ];
+
   const products = [
     {
       image: gingerChew,
@@ -58,34 +93,60 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
+      {/* Hero Carousel Section */}
+      <section className="relative h-screen overflow-hidden">
+        <Carousel
+          opts={{
+            loop: true,
+            align: "start",
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+            }),
+          ]}
+          className="h-full"
         >
-          <div className="absolute inset-0 gradient-hero" />
-        </div>
-        <div className="relative z-10 text-center px-4 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-playfair font-bold text-primary-foreground mb-6">
-            Pure. Organic. Powerful.
-          </h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            High-quality, organic ginger-based products for a healthier world
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/products">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-gold px-8">
-                Explore Products
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8">
-                Partner With Us
-              </Button>
-            </Link>
-          </div>
-        </div>
+          <CarouselContent className="h-screen">
+            {heroSlides.map((slide, index) => (
+              <CarouselItem key={index} className="h-screen">
+                <div className="relative h-full flex items-center justify-center">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                  >
+                    <div className="absolute inset-0 gradient-hero" />
+                  </div>
+                  <div className="relative z-10 text-center px-4 animate-fade-in">
+                    <h1 className="text-5xl md:text-7xl font-playfair font-bold text-primary-foreground mb-4">
+                      {slide.subtitle}
+                    </h1>
+                    <h2 className="text-3xl md:text-5xl font-playfair font-semibold text-primary-foreground/90 mb-6">
+                      {slide.title}
+                    </h2>
+                    <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+                      {slide.description}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Link to="/products">
+                        <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-gold px-8">
+                          Explore Products
+                        </Button>
+                      </Link>
+                      <Link to="/contact">
+                        <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8">
+                          Partner With Us
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20" />
+          <CarouselNext className="right-4 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20" />
+        </Carousel>
       </section>
 
       {/* About Preview */}
