@@ -11,9 +11,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import heroImage from "@/assets/hero-ginger.jpg";
 import gingerChew from "@/assets/product-ginger-chew.jpg";
 import gingerPowder from "@/assets/product-ginger-powder.jpg";
+import gingerFlakes from "@/assets/product-ginger-flakes.jpg";
+import allProducts from "@/assets/all-products.jpg";
 import freshGinger from "@/assets/product-fresh-ginger.jpg";
 import gingerOil from "@/assets/product-ginger-oil.jpg";
 
@@ -55,16 +56,16 @@ const Home = () => {
       description: "Premium ground ginger for culinary excellence",
     },
     {
-      image: freshGinger,
-      title: "Fresh Ginger",
-      subtitle: "Farm to Table",
-      description: "Organic fresh ginger roots with vibrant flavor",
+      image: gingerFlakes,
+      title: "Ginger Flakes",
+      subtitle: "Naturally Dehydrated",
+      description: "Dehydrated ginger pieces for versatile use",
     },
     {
-      image: gingerOil,
-      title: "Ginger Oil",
-      subtitle: "Natural Wellness",
-      description: "Pure essential oil for wellness and aromatherapy",
+      image: allProducts,
+      title: "Complete Range",
+      subtitle: "Discover All Products",
+      description: "Explore our full collection of organic ginger products",
     },
   ];
 

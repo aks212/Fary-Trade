@@ -9,6 +9,7 @@ const Certifications = () => {
       issuer: "USDA Organic",
       description: "Certified 100% organic by USDA standards, ensuring no synthetic pesticides or GMOs.",
       year: "2020",
+      status: "In Process",
     },
     {
       icon: Shield,
@@ -16,6 +17,7 @@ const Certifications = () => {
       issuer: "Fair Trade International",
       description: "Committed to fair wages, safe working conditions, and sustainable farming practices.",
       year: "2021",
+      status: "In Process",
     },
     {
       icon: Globe,
@@ -23,6 +25,7 @@ const Certifications = () => {
       issuer: "International Organization for Standardization",
       description: "Food safety management system certification for quality control.",
       year: "2022",
+      status: "In Process",
     },
     {
       icon: CheckCircle,
@@ -30,6 +33,7 @@ const Certifications = () => {
       issuer: "Good Manufacturing Practice",
       description: "Adhering to strict manufacturing and quality assurance standards.",
       year: "2023",
+      status: "In Process",
     },
     {
       icon: Award,
@@ -37,6 +41,7 @@ const Certifications = () => {
       issuer: "Hazard Analysis Critical Control Point",
       description: "Food safety management system preventing biological, chemical, and physical hazards.",
       year: "2023",
+      status: "Certified",
     },
     {
       icon: Shield,
@@ -44,6 +49,23 @@ const Certifications = () => {
       issuer: "Rainforest Alliance Certified",
       description: "Promoting biodiversity conservation and sustainable livelihoods.",
       year: "2024",
+      status: "In Process",
+    },
+    {
+      icon: CheckCircle,
+      title: "FDA Certified",
+      issuer: "Food and Drug Administration",
+      description: "Compliance with FDA regulations for food safety and quality standards.",
+      year: "2024",
+      status: "Certified",
+    },
+    {
+      icon: Award,
+      title: "Halal Certified",
+      issuer: "Islamic Food and Nutrition Council of America",
+      description: "Products meet Islamic dietary laws and halal food standards.",
+      year: "2024",
+      status: "Certified",
     },
   ];
 
@@ -83,9 +105,18 @@ const Certifications = () => {
                         <h3 className="text-2xl font-playfair font-semibold text-foreground">
                           {cert.title}
                         </h3>
-                        <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                          {cert.year}
-                        </span>
+                        <div className="flex flex-col items-end gap-1">
+                          <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                            {cert.year}
+                          </span>
+                          <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                            cert.status === "Certified" 
+                              ? "bg-green-500/10 text-green-600" 
+                              : "bg-amber-500/10 text-amber-600"
+                          }`}>
+                            {cert.status}
+                          </span>
+                        </div>
                       </div>
                       <p className="text-sm text-primary font-medium mb-3">{cert.issuer}</p>
                     </div>

@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Download, ShoppingCart } from "lucide-react";
 import gingerChew from "@/assets/product-ginger-chew.jpg";
 import gingerPowder from "@/assets/product-ginger-powder.jpg";
+import gingerFlakes from "@/assets/product-ginger-flakes.jpg";
 import freshGinger from "@/assets/product-fresh-ginger.jpg";
 import gingerOil from "@/assets/product-ginger-oil.jpg";
 
@@ -43,7 +44,7 @@ const Products = () => {
     },
     {
       name: "Ginger Flakes",
-      image: gingerPowder,
+      image: gingerFlakes,
       description: "Dehydrated ginger pieces for versatile use",
       benefits: "Long shelf life, concentrated flavor, convenient storage",
       use: "Rehydrate for cooking or use directly in soups and stews",
