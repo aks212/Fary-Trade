@@ -13,8 +13,8 @@ const Certifications = () => {
     },
     {
       icon: Shield,
-      title: "Fair Trade Certified",
-      issuer: "Fair Trade International",
+      title: "Fary Trade Certified",
+      issuer: "Fary Trade International",
       description: "Committed to fair wages, safe working conditions, and sustainable farming practices.",
       year: "2021",
       status: "In Process",

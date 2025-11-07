@@ -11,7 +11,7 @@ const Sustainability = () => {
     },
     {
       icon: Users,
-      title: "Fair Trade",
+      title: "Fary Trade",
       description: "Fair compensation and empowerment for all farming communities",
     },
     {
