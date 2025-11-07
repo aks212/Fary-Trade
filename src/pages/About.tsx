@@ -79,7 +79,7 @@ const About = () => {
             </h2>
             <GoldDivider />
             <p className="text-xl mt-8 opacity-90">
-              We believe in responsible farming, Fary Trade practices, and community
+              We believe in responsible farming, fair trade practices, and community
               empowerment. Every product we create supports sustainable agriculture and
               contributes to the well-being of farming communities across Africa.
             </p>

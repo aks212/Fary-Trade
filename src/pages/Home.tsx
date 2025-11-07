@@ -56,12 +56,6 @@ const Home = () => {
       description: "Premium ground ginger for culinary excellence",
     },
     {
-      image: freshGinger,
-      title: "Fresh Ginger",
-      subtitle: "Natural Wellness",
-      description: "Organic fresh ginger roots with vibrant flavor",
-    },
-    {
       image: gingerFlakes,
       title: "Ginger Flakes",
       subtitle: "Naturally Dehydrated",
