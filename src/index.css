@@ -2,101 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Fary's Ginger Company Brand Design System
+   Colors based on brand guidelines:
+   - Orange #E67E22 (27° 80% 52%) - Energy, bold taste, ginger heat
+   - Green #8DBE4F (88° 46% 53%) - Freshness, health, organic purity
+   - Brown #8B5A2B (28° 54% 36%) - Earthy, authentic, grounded
+   - Cream #F3E8D7 (38° 48% 90%) - Premium, soft background
 */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 13%;
+    --background: 38 48% 95%;
+    --foreground: 28 54% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 13%;
+    --card: 38 48% 98%;
+    --card-foreground: 28 54% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 13%;
+    --popover: 38 48% 98%;
+    --popover-foreground: 28 54% 20%;
 
-    --primary: 172 100% 21%;
-    --primary-foreground: 0 0% 98%;
+    /* Primary: Orange - Energy & Bold Flavor */
+    --primary: 27 80% 52%;
+    --primary-foreground: 38 48% 98%;
 
-    --secondary: 45 62% 53%;
-    --secondary-foreground: 0 0% 13%;
+    /* Secondary: Green - Freshness & Health */
+    --secondary: 88 46% 53%;
+    --secondary-foreground: 28 54% 20%;
 
-    --muted: 172 15% 92%;
-    --muted-foreground: 172 10% 45%;
+    /* Accent: Brown - Earthy & Authentic */
+    --accent: 28 54% 36%;
+    --accent-foreground: 38 48% 98%;
 
-    --accent: 45 62% 53%;
-    --accent-foreground: 0 0% 13%;
+    --muted: 38 30% 90%;
+    --muted-foreground: 28 30% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 172 20% 88%;
-    --input: 172 20% 88%;
-    --ring: 172 100% 21%;
+    --border: 38 30% 85%;
+    --input: 38 30% 85%;
+    --ring: 27 80% 52%;
 
     --radius: 0.5rem;
     
-    /* Custom design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(172 100% 21% / 0.3), hsl(172 80% 15% / 0.4));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 98%), hsl(172 30% 96%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(172 20% 98%));
-    --shadow-elegant: 0 4px 20px -4px hsl(172 100% 21% / 0.15);
-    --shadow-gold: 0 2px 12px -2px hsl(45 62% 53% / 0.3);
+    /* Custom brand tokens */
+    --cream: 38 48% 90%;
+    --ginger-orange: 27 80% 52%;
+    --leaf-green: 88 46% 53%;
+    --earth-brown: 28 54% 36%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(28 54% 20% / 0.4), hsl(28 54% 15% / 0.5));
+    --gradient-subtle: linear-gradient(180deg, hsl(38 48% 95%), hsl(38 48% 92%));
+    --gradient-card: linear-gradient(145deg, hsl(38 48% 98%), hsl(38 40% 96%));
+    --gradient-brand: linear-gradient(135deg, hsl(27 80% 52%), hsl(88 46% 53%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 4px 20px -4px hsl(28 54% 36% / 0.15);
+    --shadow-gold: 0 2px 12px -2px hsl(27 80% 52% / 0.3);
+    --shadow-green: 0 2px 12px -2px hsl(88 46% 53% / 0.3);
+    
+    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 13%;
-    --sidebar-primary: 172 100% 21%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 172 15% 92%;
-    --sidebar-accent-foreground: 0 0% 13%;
-    --sidebar-border: 172 20% 88%;
-    --sidebar-ring: 172 100% 21%;
+    --sidebar-background: 38 48% 95%;
+    --sidebar-foreground: 28 54% 20%;
+    --sidebar-primary: 27 80% 52%;
+    --sidebar-primary-foreground: 38 48% 98%;
+    --sidebar-accent: 38 30% 90%;
+    --sidebar-accent-foreground: 28 54% 20%;
+    --sidebar-border: 38 30% 85%;
+    --sidebar-ring: 27 80% 52%;
   }
 
   .dark {
-    --background: 0 0% 13%;
-    --foreground: 0 0% 98%;
+    --background: 28 30% 10%;
+    --foreground: 38 48% 95%;
 
-    --card: 0 0% 18%;
-    --card-foreground: 0 0% 98%;
+    --card: 28 30% 15%;
+    --card-foreground: 38 48% 95%;
 
-    --popover: 0 0% 18%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 28 30% 15%;
+    --popover-foreground: 38 48% 95%;
 
-    --primary: 172 100% 21%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 27 80% 52%;
+    --primary-foreground: 38 48% 98%;
 
-    --secondary: 45 62% 53%;
-    --secondary-foreground: 0 0% 13%;
+    --secondary: 88 46% 53%;
+    --secondary-foreground: 28 54% 20%;
 
-    --muted: 0 0% 25%;
-    --muted-foreground: 0 0% 65%;
+    --accent: 28 54% 36%;
+    --accent-foreground: 38 48% 98%;
 
-    --accent: 45 62% 53%;
-    --accent-foreground: 0 0% 13%;
+    --muted: 28 20% 25%;
+    --muted-foreground: 38 20% 65%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 172 100% 21%;
+    --border: 28 20% 25%;
+    --input: 28 20% 25%;
+    --ring: 27 80% 52%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(172 100% 15% / 0.3), hsl(0 0% 13% / 0.4));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 13%), hsl(172 30% 18%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 18%), hsl(172 20% 20%));
+    --gradient-hero: linear-gradient(135deg, hsl(28 30% 10% / 0.5), hsl(28 30% 8% / 0.6));
+    --gradient-subtle: linear-gradient(180deg, hsl(28 30% 10%), hsl(28 30% 12%));
+    --gradient-card: linear-gradient(145deg, hsl(28 30% 15%), hsl(28 25% 18%));
     
-    --sidebar-background: 0 0% 13%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 172 100% 21%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 25%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 25%;
-    --sidebar-ring: 172 100% 21%;
+    --sidebar-background: 28 30% 10%;
+    --sidebar-foreground: 38 48% 95%;
+    --sidebar-primary: 27 80% 52%;
+    --sidebar-primary-foreground: 38 48% 98%;
+    --sidebar-accent: 28 20% 25%;
+    --sidebar-accent-foreground: 38 48% 95%;
+    --sidebar-border: 28 20% 25%;
+    --sidebar-ring: 27 80% 52%;
   }
 }
 
@@ -107,11 +126,12 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
   }
 }
 
@@ -128,6 +148,10 @@ All colors MUST be HSL.
     background: var(--gradient-card);
   }
   
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);
   }
@@ -136,12 +160,32 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-gold);
   }
   
+  .shadow-green {
+    box-shadow: var(--shadow-green);
+  }
+  
   .transition-smooth {
     transition: var(--transition-smooth);
   }
   
-  .gold-border {
-    border: 1px solid hsl(var(--secondary));
+  .brand-border {
+    border: 1px solid hsl(var(--primary));
+  }
+  
+  .text-brand-orange {
+    color: hsl(var(--primary));
+  }
+  
+  .text-brand-green {
+    color: hsl(var(--secondary));
+  }
+  
+  .text-brand-brown {
+    color: hsl(var(--accent));
+  }
+  
+  .bg-brand-cream {
+    background-color: hsl(var(--cream));
   }
   
   .animate-fade-in {

@@ -72,9 +72,9 @@ const Certifications = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 gradient-hero text-primary-foreground">
+      <section className="py-20 bg-accent text-accent-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 animate-fade-in">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
             Our Certifications
           </h1>
           <GoldDivider />
@@ -102,7 +102,7 @@ const Certifications = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-2xl font-playfair font-semibold text-foreground">
+                      <h3 className="text-2xl font-bold text-accent">
                           {cert.title}
                         </h3>
                         <div className="flex flex-col items-end gap-1">
@@ -133,7 +133,7 @@ const Certifications = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-playfair font-bold text-center mb-6 text-foreground">
+            <h2 className="text-4xl font-bold text-center mb-6 text-accent">
               Why Certifications Matter
             </h2>
             <GoldDivider />
@@ -159,7 +159,7 @@ const Certifications = () => {
       {/* Call to Action */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-playfair font-bold mb-6 text-foreground animate-fade-in">
+          <h2 className="text-4xl font-bold mb-6 text-accent animate-fade-in">
             Partner With a Certified Leader
           </h2>
           <GoldDivider />

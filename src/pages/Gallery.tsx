@@ -37,9 +37,9 @@ const Gallery = () => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="py-20 gradient-hero text-primary-foreground">
+      <section className="py-20 bg-accent text-accent-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 animate-fade-in">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
             Gallery
           </h1>
           <GoldDivider />
