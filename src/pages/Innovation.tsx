@@ -1,4 +1,5 @@
 import GoldDivider from "@/components/GoldDivider";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Beaker, Lightbulb, TrendingUp, Users } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -54,46 +55,49 @@ const Innovation = () => {
       {/* Innovation Overview */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-playfair font-bold mb-6 text-center">
-              Driving Innovation Forward
-            </h2>
-            <GoldDivider />
-            <p className="text-xl text-center text-muted-foreground mt-8 leading-relaxed">
-              Our commitment to innovation drives us to continuously explore new
-              possibilities in ginger processing, product development, and sustainable
-              farming practices. We invest in research and development to bring the best
-              possible products to our customers.
-            </p>
-          </div>
+          <ScrollReveal animation="fade-up">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-6 text-center text-accent">
+                Driving Innovation Forward
+              </h2>
+              <GoldDivider />
+              <p className="text-xl text-center text-muted-foreground mt-8 leading-relaxed">
+                Our commitment to innovation drives us to continuously explore new
+                possibilities in ginger processing, product development, and sustainable
+                farming practices. We invest in research and development to bring the best
+                possible products to our customers.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Innovation Areas */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-playfair font-bold mb-6">
-              Innovation Focus Areas
-            </h2>
-            <GoldDivider />
-          </div>
+          <ScrollReveal animation="fade-up">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-6 text-accent">
+                Innovation Focus Areas
+              </h2>
+              <GoldDivider />
+            </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {innovations.map((innovation) => {
+            {innovations.map((innovation, index) => {
               const Icon = innovation.icon;
               return (
-                <div
-                  key={innovation.title}
-                  className="text-center p-6 gradient-card rounded-lg shadow-elegant"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 mb-4">
-                    <Icon className="w-8 h-8 text-secondary" />
+                <ScrollReveal key={innovation.title} animation="scale" delay={index * 100}>
+                  <div className="text-center p-6 gradient-card rounded-lg shadow-elegant h-full">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-accent">
+                      {innovation.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">{innovation.description}</p>
                   </div>
-                  <h3 className="text-xl font-playfair font-semibold mb-3">
-                    {innovation.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">{innovation.description}</p>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -105,78 +109,86 @@ const Innovation = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-playfair font-bold mb-6">
-                  New Product Development
-                </h2>
-                <GoldDivider />
-                <div className="mt-8 space-y-4 text-muted-foreground">
-                  <p>
-                    We're constantly innovating to bring new ginger-based products to
-                    market. Our research and development team works on creating functional
-                    beverages, enhanced extracts, and essential oils that meet the evolving
-                    needs of health-conscious consumers.
-                  </p>
-                  <p>
-                    Our innovation pipeline includes ready-to-drink ginger beverages,
-                    concentrated wellness shots, aromatherapy products, and pharmaceutical-
-                    grade extracts—all while maintaining our commitment to organic,
-                    sustainable production.
-                  </p>
+              <ScrollReveal animation="fade-right">
+                <div>
+                  <h2 className="text-4xl font-bold mb-6 text-accent">
+                    New Product Development
+                  </h2>
+                  <GoldDivider />
+                  <div className="mt-8 space-y-4 text-muted-foreground">
+                    <p>
+                      We're constantly innovating to bring new ginger-based products to
+                      market. Our research and development team works on creating functional
+                      beverages, enhanced extracts, and essential oils that meet the evolving
+                      needs of health-conscious consumers.
+                    </p>
+                    <p>
+                      Our innovation pipeline includes ready-to-drink ginger beverages,
+                      concentrated wellness shots, aromatherapy products, and pharmaceutical-
+                      grade extracts—all while maintaining our commitment to organic,
+                      sustainable production.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="gradient-card p-8 rounded-lg shadow-elegant gold-border">
-                <h3 className="text-2xl font-playfair font-semibold mb-6 text-center">
-                  Active Research Areas
-                </h3>
-                <div className="space-y-3">
-                  {researchAreas.map((area) => (
-                    <div key={area} className="flex items-start">
-                      <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2 mr-3" />
-                      <p className="text-muted-foreground">{area}</p>
-                    </div>
-                  ))}
+              </ScrollReveal>
+              <ScrollReveal animation="fade-left">
+                <div className="gradient-card p-8 rounded-lg shadow-elegant brand-border">
+                  <h3 className="text-2xl font-bold mb-6 text-center text-accent">
+                    Active Research Areas
+                  </h3>
+                  <div className="space-y-3">
+                    {researchAreas.map((area) => (
+                      <div key={area} className="flex items-start">
+                        <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2 mr-3" />
+                        <p className="text-muted-foreground">{area}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
       </section>
 
       {/* Partnerships */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-playfair font-bold mb-6">
-              Research Partnerships
-            </h2>
-            <GoldDivider />
-            <p className="text-xl mt-8 opacity-90 leading-relaxed">
-              We collaborate with leading research institutions, universities, and global
-              partners to advance our understanding of ginger cultivation, processing, and
-              application. These partnerships enable us to stay at the forefront of
-              innovation in the superfood industry.
-            </p>
-          </div>
+          <ScrollReveal animation="fade-up">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl font-bold mb-6">
+                Research Partnerships
+              </h2>
+              <GoldDivider />
+              <p className="text-xl mt-8 opacity-90 leading-relaxed">
+                We collaborate with leading research institutions, universities, and global
+                partners to advance our understanding of ginger cultivation, processing, and
+                application. These partnerships enable us to stay at the forefront of
+                innovation in the superfood industry.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-playfair font-bold mb-6">
-            Partner With Us
-          </h2>
-          <GoldDivider />
-          <p className="text-xl text-muted-foreground mt-8 mb-8 max-w-2xl mx-auto">
-            Are you interested in collaborating on research, product development, or
-            distribution? We're always looking for partners who share our vision.
-          </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-elegant">
-              Get in Touch
-            </Button>
-          </Link>
+          <ScrollReveal animation="fade-up">
+            <h2 className="text-4xl font-bold mb-6 text-accent">
+              Partner With Us
+            </h2>
+            <GoldDivider />
+            <p className="text-xl text-muted-foreground mt-8 mb-8 max-w-2xl mx-auto">
+              Are you interested in collaborating on research, product development, or
+              distribution? We're always looking for partners who share our vision.
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-elegant">
+                Get in Touch
+              </Button>
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
     </div>

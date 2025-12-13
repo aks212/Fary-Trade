@@ -1,7 +1,10 @@
 import GoldDivider from "@/components/GoldDivider";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, ShoppingCart } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { generateProductCatalogue } from "@/utils/generateCatalogue";
 import gingerChew from "@/assets/product-ginger-chew.jpg";
 import gingerPowder from "@/assets/product-ginger-powder.jpg";
 import gingerFlakes from "@/assets/product-ginger-flakes.jpg";
@@ -9,6 +12,8 @@ import freshGinger from "@/assets/product-fresh-ginger.jpg";
 import gingerOil from "@/assets/product-ginger-oil.jpg";
 
 const Products = () => {
+  const { toast } = useToast();
+
   const products = [
     {
       name: "Ginger Chew",
@@ -68,6 +73,22 @@ const Products = () => {
     },
   ];
 
+  const handleDownloadCatalogue = () => {
+    try {
+      generateProductCatalogue(products);
+      toast({
+        title: "Catalogue Downloaded!",
+        description: "Your product catalogue PDF has been saved.",
+      });
+    } catch (error) {
+      toast({
+        title: "Download Failed",
+        description: "There was an error generating the catalogue. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -87,40 +108,39 @@ const Products = () => {
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <Card
-                key={product.name}
-                className="overflow-hidden shadow-elegant hover:shadow-gold transition-smooth brand-border"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-smooth hover:scale-105"
-                  />
-                </div>
-                <CardContent className="p-6 gradient-card">
-                  <h3 className="text-2xl font-bold mb-3 text-accent">
-                    {product.name}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">{product.description}</p>
-
-                  <div className="space-y-3 text-sm">
-                    <div>
-                      <h4 className="font-semibold text-primary mb-1">Benefits:</h4>
-                      <p className="text-muted-foreground">{product.benefits}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-primary mb-1">How to Use:</h4>
-                      <p className="text-muted-foreground">{product.use}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-primary mb-1">Ingredients:</h4>
-                      <p className="text-muted-foreground">{product.ingredients}</p>
-                    </div>
+            {products.map((product, index) => (
+              <ScrollReveal key={product.name} animation="fade-up" delay={index * 80}>
+                <Card className="overflow-hidden shadow-elegant hover:shadow-gold transition-smooth brand-border h-full">
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-smooth hover:scale-105"
+                    />
                   </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6 gradient-card">
+                    <h3 className="text-2xl font-bold mb-3 text-accent">
+                      {product.name}
+                    </h3>
+                    <p className="text-muted-foreground mb-4">{product.description}</p>
+
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <h4 className="font-semibold text-primary mb-1">Benefits:</h4>
+                        <p className="text-muted-foreground">{product.benefits}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-1">How to Use:</h4>
+                        <p className="text-muted-foreground">{product.use}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-1">Ingredients:</h4>
+                        <p className="text-muted-foreground">{product.ingredients}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -129,30 +149,33 @@ const Products = () => {
       {/* CTA Section */}
       <section className="py-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Experience Our Products?
-          </h2>
-          <GoldDivider />
-          <p className="text-xl mt-8 mb-8 max-w-2xl mx-auto opacity-90">
-            Contact us to place an order or download our complete product catalogue
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-elegant"
-            >
-              <ShoppingCart className="mr-2" />
-              Order Now
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground/10"
-            >
-              <Download className="mr-2" />
-              Download Catalogue
-            </Button>
-          </div>
+          <ScrollReveal animation="fade-up">
+            <h2 className="text-4xl font-bold mb-6">
+              Ready to Experience Our Products?
+            </h2>
+            <GoldDivider />
+            <p className="text-xl mt-8 mb-8 max-w-2xl mx-auto opacity-90">
+              Contact us to place an order or download our complete product catalogue
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-elegant"
+              >
+                <ShoppingCart className="mr-2" />
+                Order Now
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground/10"
+                onClick={handleDownloadCatalogue}
+              >
+                <Download className="mr-2" />
+                Download Catalogue
+              </Button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>
