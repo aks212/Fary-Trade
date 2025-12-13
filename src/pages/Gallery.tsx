@@ -1,4 +1,5 @@
 import GoldDivider from "@/components/GoldDivider";
+import ScrollReveal from "@/components/ScrollReveal";
 import heroImage from "@/assets/hero-ginger.jpg";
 import gingerChew from "@/assets/product-ginger-chew.jpg";
 import gingerPowder from "@/assets/product-ginger-powder.jpg";
@@ -52,53 +53,56 @@ const Gallery = () => {
       {/* Photo Gallery */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-playfair font-bold mb-6">
-              Our Journey in Pictures
-            </h2>
-            <GoldDivider />
-          </div>
+          <ScrollReveal animation="fade-up">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-6 text-accent">
+                Our Journey in Pictures
+              </h2>
+              <GoldDivider />
+            </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {images.map((image, index) => (
-              <div
-                key={index}
-                className="group overflow-hidden rounded-lg shadow-elegant hover:shadow-gold transition-smooth gold-border"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.title}
-                    className="w-full h-full object-cover transition-smooth group-hover:scale-110"
-                  />
+              <ScrollReveal key={index} animation="scale" delay={index * 100}>
+                <div className="group overflow-hidden rounded-lg shadow-elegant hover:shadow-gold transition-smooth brand-border">
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={image.src}
+                      alt={image.title}
+                      className="w-full h-full object-cover transition-smooth group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-4 gradient-card">
+                    <p className="text-xs text-primary font-semibold mb-1">
+                      {image.category}
+                    </p>
+                    <h3 className="text-lg font-bold text-accent">{image.title}</h3>
+                  </div>
                 </div>
-                <div className="p-4 gradient-card">
-                  <p className="text-xs text-secondary font-semibold mb-1">
-                    {image.category}
-                  </p>
-                  <h3 className="text-lg font-playfair font-semibold">{image.title}</h3>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Video Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-playfair font-bold mb-6">
-              From Farm to Table
-            </h2>
-            <GoldDivider />
-            <p className="text-xl mt-8 opacity-90 mb-8">
-              Watch our complete journey—from sustainable farming practices to the final
-              premium products that reach global markets
-            </p>
-            <div className="aspect-video bg-primary-foreground/10 rounded-lg shadow-elegant flex items-center justify-center">
-              <p className="text-lg opacity-70">Video Coming Soon</p>
+          <ScrollReveal animation="fade-up">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl font-bold mb-6">
+                From Farm to Table
+              </h2>
+              <GoldDivider />
+              <p className="text-xl mt-8 opacity-90 mb-8">
+                Watch our complete journey—from sustainable farming practices to the final
+                premium products that reach global markets
+              </p>
+              <div className="aspect-video bg-secondary-foreground/10 rounded-lg shadow-elegant flex items-center justify-center">
+                <p className="text-lg opacity-70">Video Coming Soon</p>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -106,26 +110,27 @@ const Gallery = () => {
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-playfair font-bold mb-6">
-                Press & Media Coverage
-              </h2>
-              <GoldDivider />
-            </div>
+            <ScrollReveal animation="fade-up">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold mb-6 text-accent">
+                  Press & Media Coverage
+                </h2>
+                <GoldDivider />
+              </div>
+            </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {mediaFeatures.map((feature, index) => (
-                <div
-                  key={index}
-                  className="p-6 gradient-card rounded-lg shadow-elegant gold-border text-center"
-                >
-                  <p className="text-sm text-secondary font-semibold mb-2">
-                    {feature.date}
-                  </p>
-                  <h3 className="text-xl font-playfair font-semibold mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">{feature.description}</p>
-                </div>
+                <ScrollReveal key={index} animation="fade-up" delay={index * 100}>
+                  <div className="p-6 gradient-card rounded-lg shadow-elegant brand-border text-center h-full">
+                    <p className="text-sm text-primary font-semibold mb-2">
+                      {feature.date}
+                    </p>
+                    <h3 className="text-xl font-bold mb-3 text-accent">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -135,19 +140,21 @@ const Gallery = () => {
       {/* Testimonials */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-playfair font-bold mb-6">
-              What People Say
-            </h2>
-            <GoldDivider />
-            <blockquote className="text-2xl font-playfair italic text-muted-foreground mt-8">
-              "Fary's Ginger Company represents the best of African agriculture—
-              sustainable, ethical, and exceptionally high quality."
-            </blockquote>
-            <p className="mt-4 text-sm text-muted-foreground">
-              — International Trade Review
-            </p>
-          </div>
+          <ScrollReveal animation="fade">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl font-bold mb-6 text-accent">
+                What People Say
+              </h2>
+              <GoldDivider />
+              <blockquote className="text-2xl italic text-muted-foreground mt-8">
+                "Fary's Ginger Company represents the best of African agriculture—
+                sustainable, ethical, and exceptionally high quality."
+              </blockquote>
+              <p className="mt-4 text-sm text-muted-foreground">
+                — International Trade Review
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

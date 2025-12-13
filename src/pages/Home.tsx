@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Leaf, Users, TrendingUp, Award } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import GoldDivider from "@/components/GoldDivider";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   Carousel,
   CarouselContent,
@@ -153,36 +154,42 @@ const Home = () => {
       {/* About Preview */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-accent">
-              Our Story
-            </h2>
-            <GoldDivider />
-            <p className="text-lg text-muted-foreground mt-8 mb-6">
-              Fary's Ginger Company provides high-quality, organic ginger-based products
-              while promoting sustainable farming and supporting local communities.
-            </p>
-            <Link to="/about">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                Learn More About Us
-              </Button>
-            </Link>
-          </div>
+          <ScrollReveal animation="fade-up">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl font-bold mb-6 text-accent">
+                Our Story
+              </h2>
+              <GoldDivider />
+              <p className="text-lg text-muted-foreground mt-8 mb-6">
+                Fary's Ginger Company provides high-quality, organic ginger-based products
+                while promoting sustainable farming and supporting local communities.
+              </p>
+              <Link to="/about">
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                  Learn More About Us
+                </Button>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Featured Products */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-accent">
-              Featured Products
-            </h2>
-            <GoldDivider />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-in">
-            {products.map((product) => (
-              <ProductCard key={product.title} {...product} />
+          <ScrollReveal animation="fade-up">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-6 text-accent">
+                Featured Products
+              </h2>
+              <GoldDivider />
+            </div>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {products.map((product, index) => (
+              <ScrollReveal key={product.title} animation="fade-up" delay={index * 100}>
+                <ProductCard {...product} />
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -191,28 +198,29 @@ const Home = () => {
       {/* Why Choose Us */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-accent">
-              Why Choose Us
-            </h2>
-            <GoldDivider />
-          </div>
+          <ScrollReveal animation="fade-up">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-6 text-accent">
+                Why Choose Us
+              </h2>
+              <GoldDivider />
+            </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature) => {
+            {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div
-                  key={feature.title}
-                  className="text-center p-6 gradient-card rounded-lg shadow-elegant animate-scale-in"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
+                <ScrollReveal key={feature.title} animation="scale" delay={index * 100}>
+                  <div className="text-center p-6 gradient-card rounded-lg shadow-elegant h-full">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-accent">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-accent">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -222,30 +230,34 @@ const Home = () => {
       {/* Mission Banner */}
       <section className="py-20 bg-accent text-accent-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-primary mb-4">Our Mission</h2>
-          <blockquote className="text-xl md:text-2xl italic mb-6 animate-fade-in max-w-4xl mx-auto">
-            "To harness the natural power of ginger to create products that energize, nourish, 
-            and inspire healthier living. We are committed to delivering authentic, nature-driven 
-            experiences made from real ingredients, crafted with honesty and care."
-          </blockquote>
+          <ScrollReveal animation="fade">
+            <h2 className="text-2xl font-bold text-primary mb-4">Our Mission</h2>
+            <blockquote className="text-xl md:text-2xl italic mb-6 max-w-4xl mx-auto">
+              "To harness the natural power of ginger to create products that energize, nourish, 
+              and inspire healthier living. We are committed to delivering authentic, nature-driven 
+              experiences made from real ingredients, crafted with honesty and care."
+            </blockquote>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="py-20 gradient-subtle">
-        <div className="container mx-auto px-4 text-center animate-fade-in">
-          <h2 className="text-4xl font-bold mb-6 text-accent">
-            Join Our Journey Towards a Healthier, Sustainable Future
-          </h2>
-          <GoldDivider />
-          <p className="text-lg text-muted-foreground mt-8 mb-8 max-w-2xl mx-auto">
-            Partner with us to bring premium, organic superfood products to the world
-          </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-elegant px-8">
-              Contact Us
-            </Button>
-          </Link>
+        <div className="container mx-auto px-4 text-center">
+          <ScrollReveal animation="fade-up">
+            <h2 className="text-4xl font-bold mb-6 text-accent">
+              Join Our Journey Towards a Healthier, Sustainable Future
+            </h2>
+            <GoldDivider />
+            <p className="text-lg text-muted-foreground mt-8 mb-8 max-w-2xl mx-auto">
+              Partner with us to bring premium, organic superfood products to the world
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-elegant px-8">
+                Contact Us
+              </Button>
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
     </div>

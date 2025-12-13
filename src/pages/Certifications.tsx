@@ -1,5 +1,6 @@
 import { Award, CheckCircle, Shield, Globe } from "lucide-react";
 import GoldDivider from "@/components/GoldDivider";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const Certifications = () => {
   const certifications = [
@@ -13,8 +14,8 @@ const Certifications = () => {
     },
     {
       icon: Shield,
-      title: "Fair Trade Certified",
-      issuer: "Fair Trade International",
+      title: "Fary Trade Certified",
+      issuer: "Fary Trade International",
       description: "Committed to fair wages, safe working conditions, and sustainable farming practices.",
       year: "2021",
       status: "In Process",
@@ -91,38 +92,36 @@ const Certifications = () => {
             {certifications.map((cert, index) => {
               const Icon = cert.icon;
               return (
-                <div
-                  key={cert.title}
-                  className="gradient-card rounded-lg p-8 shadow-elegant animate-scale-in hover-scale"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 flex-shrink-0">
-                      <Icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-2xl font-bold text-accent">
-                          {cert.title}
-                        </h3>
-                        <div className="flex flex-col items-end gap-1">
-                          <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                            {cert.year}
-                          </span>
-                          <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
-                            cert.status === "Certified" 
-                              ? "bg-green-500/10 text-green-600" 
-                              : "bg-amber-500/10 text-amber-600"
-                          }`}>
-                            {cert.status}
-                          </span>
-                        </div>
+                <ScrollReveal key={cert.title} animation="fade-up" delay={index * 80}>
+                  <div className="gradient-card rounded-lg p-8 shadow-elegant h-full">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 flex-shrink-0">
+                        <Icon className="w-8 h-8 text-primary" />
                       </div>
-                      <p className="text-sm text-primary font-medium mb-3">{cert.issuer}</p>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-start mb-2">
+                          <h3 className="text-2xl font-bold text-accent">
+                            {cert.title}
+                          </h3>
+                          <div className="flex flex-col items-end gap-1">
+                            <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                              {cert.year}
+                            </span>
+                            <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                              cert.status === "Certified" 
+                                ? "bg-secondary/20 text-secondary" 
+                                : "bg-primary/10 text-primary"
+                            }`}>
+                              {cert.status}
+                            </span>
+                          </div>
+                        </div>
+                        <p className="text-sm text-primary font-medium mb-3">{cert.issuer}</p>
+                      </div>
                     </div>
+                    <p className="text-muted-foreground">{cert.description}</p>
                   </div>
-                  <p className="text-muted-foreground">{cert.description}</p>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -132,40 +131,44 @@ const Certifications = () => {
       {/* Why Certifications Matter */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-6 text-accent">
-              Why Certifications Matter
-            </h2>
-            <GoldDivider />
-            <div className="mt-12 space-y-6 text-lg text-muted-foreground">
-              <p>
-                Our certifications represent more than just compliance—they're a testament to our
-                unwavering commitment to excellence, sustainability, and ethical business practices.
-              </p>
-              <p>
-                Each certification is earned through rigorous audits and continuous improvement,
-                ensuring that every product meets the highest international standards for quality,
-                safety, and environmental responsibility.
-              </p>
-              <p>
-                When you choose Fary's Ginger Company, you're choosing products backed by globally
-                recognized standards that protect both people and the planet.
-              </p>
+          <ScrollReveal animation="fade-up">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold text-center mb-6 text-accent">
+                Why Certifications Matter
+              </h2>
+              <GoldDivider />
+              <div className="mt-12 space-y-6 text-lg text-muted-foreground">
+                <p>
+                  Our certifications represent more than just compliance—they're a testament to our
+                  unwavering commitment to excellence, sustainability, and ethical business practices.
+                </p>
+                <p>
+                  Each certification is earned through rigorous audits and continuous improvement,
+                  ensuring that every product meets the highest international standards for quality,
+                  safety, and environmental responsibility.
+                </p>
+                <p>
+                  When you choose Fary's Ginger Company, you're choosing products backed by globally
+                  recognized standards that protect both people and the planet.
+                </p>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-accent animate-fade-in">
-            Partner With a Certified Leader
-          </h2>
-          <GoldDivider />
-          <p className="text-lg text-muted-foreground mt-8 mb-8 max-w-2xl mx-auto">
-            Join us in delivering certified excellence to customers worldwide
-          </p>
+          <ScrollReveal animation="fade-up">
+            <h2 className="text-4xl font-bold mb-6 text-accent">
+              Partner With a Certified Leader
+            </h2>
+            <GoldDivider />
+            <p className="text-lg text-muted-foreground mt-8 mb-8 max-w-2xl mx-auto">
+              Join us in delivering certified excellence to customers worldwide
+            </p>
+          </ScrollReveal>
         </div>
       </section>
     </div>

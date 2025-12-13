@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import GoldDivider from "@/components/GoldDivider";
+import ScrollReveal from "@/components/ScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -84,32 +85,31 @@ const Contact = () => {
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {contactInfo.map((info) => {
+            {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
-                <Card
-                  key={info.title}
-                  className="shadow-elegant hover:shadow-gold transition-smooth gold-border"
-                >
-                  <CardContent className="p-6 text-center gradient-card">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                      <Icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-playfair font-semibold mb-2">
-                      {info.title}
-                    </h3>
-                    {info.link ? (
-                      <a
-                        href={info.link}
-                        className="text-muted-foreground hover:text-primary transition-smooth"
-                      >
-                        {info.content}
-                      </a>
-                    ) : (
-                      <p className="text-muted-foreground">{info.content}</p>
-                    )}
-                  </CardContent>
-                </Card>
+                <ScrollReveal key={info.title} animation="fade-up" delay={index * 100}>
+                  <Card className="shadow-elegant hover:shadow-gold transition-smooth brand-border h-full">
+                    <CardContent className="p-6 text-center gradient-card">
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                        <Icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2 text-accent">
+                        {info.title}
+                      </h3>
+                      {info.link ? (
+                        <a
+                          href={info.link}
+                          className="text-muted-foreground hover:text-primary transition-smooth"
+                        >
+                          {info.content}
+                        </a>
+                      ) : (
+                        <p className="text-muted-foreground">{info.content}</p>
+                      )}
+                    </CardContent>
+                  </Card>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -120,81 +120,85 @@ const Contact = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-playfair font-bold mb-6">
-                Send Us a Message
-              </h2>
-              <GoldDivider />
-            </div>
-            <Card className="shadow-elegant gold-border">
-              <CardContent className="p-8 gradient-card">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your.email@example.com"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                      Subject
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="What is this regarding?"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us more..."
-                      rows={6}
-                      required
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 shadow-elegant"
-                  >
-                    <Send className="mr-2" size={18} />
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <ScrollReveal animation="fade-up">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold mb-6 text-accent">
+                  Send Us a Message
+                </h2>
+                <GoldDivider />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal animation="fade-up" delay={100}>
+              <Card className="shadow-elegant brand-border">
+                <CardContent className="p-8 gradient-card">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium mb-2 text-accent">
+                        Name *
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium mb-2 text-accent">
+                        Email *
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="your.email@example.com"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium mb-2 text-accent">
+                        Subject
+                      </label>
+                      <Input
+                        id="subject"
+                        name="subject"
+                        type="text"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        placeholder="What is this regarding?"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium mb-2 text-accent">
+                        Message *
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Tell us more..."
+                        rows={6}
+                        required
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full bg-primary hover:bg-primary/90 shadow-elegant"
+                    >
+                      <Send className="mr-2" size={18} />
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -202,13 +206,15 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="aspect-video bg-muted rounded-lg shadow-elegant flex items-center justify-center gold-border">
-              <p className="text-muted-foreground">
-                Map Integration Coming Soon
-              </p>
+          <ScrollReveal animation="fade-up">
+            <div className="max-w-6xl mx-auto">
+              <div className="aspect-video bg-muted rounded-lg shadow-elegant flex items-center justify-center brand-border">
+                <p className="text-muted-foreground">
+                  Map Integration Coming Soon
+                </p>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>
