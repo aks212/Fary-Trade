@@ -119,10 +119,10 @@ const Home = () => {
                     <div className="absolute inset-0 gradient-hero" />
                   </div>
                   <div className="relative z-10 text-center px-4 animate-fade-in">
-                    <h1 className="text-5xl md:text-7xl font-playfair font-bold text-primary-foreground mb-4">
+                    <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-4 drop-shadow-lg">
                       {slide.subtitle}
                     </h1>
-                    <h2 className="text-3xl md:text-5xl font-playfair font-semibold text-primary-foreground/90 mb-6">
+                    <h2 className="text-3xl md:text-5xl font-semibold text-primary-foreground/90 mb-6 drop-shadow-md">
                       {slide.title}
                     </h2>
                     <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
@@ -154,7 +154,7 @@ const Home = () => {
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h2 className="text-4xl font-playfair font-bold mb-6 text-foreground">
+            <h2 className="text-4xl font-bold mb-6 text-accent">
               Our Story
             </h2>
             <GoldDivider />
@@ -175,7 +175,7 @@ const Home = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-playfair font-bold mb-6 text-foreground">
+            <h2 className="text-4xl font-bold mb-6 text-accent">
               Featured Products
             </h2>
             <GoldDivider />
@@ -192,7 +192,7 @@ const Home = () => {
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-playfair font-bold mb-6 text-foreground">
+            <h2 className="text-4xl font-bold mb-6 text-accent">
               Why Choose Us
             </h2>
             <GoldDivider />
@@ -208,7 +208,7 @@ const Home = () => {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-playfair font-semibold mb-3 text-foreground">
+                  <h3 className="text-xl font-bold mb-3 text-accent">
                     {feature.title}
                   </h3>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -219,21 +219,22 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Vision Banner */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* Mission Banner */}
+      <section className="py-20 bg-accent text-accent-foreground">
         <div className="container mx-auto px-4 text-center">
-          <blockquote className="text-3xl md:text-4xl font-playfair italic mb-6 animate-fade-in">
-            "To become the leading global provider of ginger-based products—driven by
-            sustainability, innovation, and quality."
+          <h2 className="text-2xl font-bold text-primary mb-4">Our Mission</h2>
+          <blockquote className="text-xl md:text-2xl italic mb-6 animate-fade-in max-w-4xl mx-auto">
+            "To harness the natural power of ginger to create products that energize, nourish, 
+            and inspire healthier living. We are committed to delivering authentic, nature-driven 
+            experiences made from real ingredients, crafted with honesty and care."
           </blockquote>
-          <p className="text-xl opacity-90">Our Vision</p>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="py-20 gradient-subtle">
         <div className="container mx-auto px-4 text-center animate-fade-in">
-          <h2 className="text-4xl font-playfair font-bold mb-6 text-foreground">
+          <h2 className="text-4xl font-bold mb-6 text-accent">
             Join Our Journey Towards a Healthier, Sustainable Future
           </h2>
           <GoldDivider />
