@@ -64,8 +64,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'sans': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-        'display': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+        'sans': ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+        'display': ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       keyframes: {
         "accordion-down": {
