@@ -1,93 +1,126 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: "Home", path: "/" },
+  const explore = [
     { name: "About", path: "/about" },
     { name: "Products", path: "/products" },
-    { name: "Sustainability", path: "/sustainability" },
     { name: "Innovation", path: "/innovation" },
+    { name: "Sustainability", path: "/sustainability" },
+  ];
+
+  const company = [
+    { name: "Gallery", path: "/gallery" },
+    { name: "Certifications", path: "/certifications" },
     { name: "Contact", path: "/contact" },
   ];
 
   return (
-    <footer className="bg-accent text-accent-foreground">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
-          <div className="flex flex-col items-start">
-            <img 
-              src={logo} 
-              alt="Fary's Ginger Company" 
-              className="h-20 w-auto mb-4 bg-background/90 rounded-full p-2"
+    <footer className="bg-espresso text-accent-foreground relative overflow-hidden">
+      <div className="absolute inset-0 noise opacity-40 pointer-events-none" />
+      <div className="absolute -top-px left-0 right-0 gold-rule" />
+
+      <div className="container mx-auto px-6 lg:px-10 pt-20 pb-10 relative">
+        {/* Top CTA */}
+        <div className="grid lg:grid-cols-2 gap-10 pb-16 border-b border-accent-foreground/10">
+          <div>
+            <p className="eyebrow text-primary/80 mb-4">Begin a Partnership</p>
+            <h2 className="font-display text-4xl md:text-6xl text-accent-foreground text-balance leading-[1.05]">
+              Let's bring the heat of authentic ginger to your shelves.
+            </h2>
+          </div>
+          <div className="flex lg:items-end lg:justify-end">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-3 text-primary border-b border-primary/40 hover:border-primary pb-1 text-sm uppercase tracking-[0.25em] transition-smooth"
+            >
+              Start the conversation
+              <ArrowUpRight className="w-4 h-4 transition-smooth group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Main grid */}
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-10 py-16">
+          <div className="col-span-2 md:col-span-5">
+            <img
+              src={logo}
+              alt="Fary's Ginger Company"
+              className="h-16 w-auto mb-6 bg-ivory/95 rounded-full p-2"
             />
-            <p className="text-sm opacity-90 mb-4">
-              Premium organic ginger-based products for a healthier world.
+            <p className="text-sm text-accent-foreground/70 max-w-sm leading-relaxed">
+              Premium organic ginger products — sustainably farmed, ethically traded,
+              and crafted to inspire healthier living across the world.
             </p>
-            <p className="text-xs italic text-primary">
+            <p className="mt-6 font-display italic text-primary/90 text-lg">
               "This is the beginning of something good."
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-4 text-primary">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-2">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="text-sm opacity-90 hover:opacity-100 hover:text-primary transition-smooth"
-                >
-                  {link.name}
-                </Link>
+          <div className="md:col-span-3">
+            <h4 className="text-xs uppercase tracking-[0.25em] text-primary mb-5">Explore</h4>
+            <ul className="space-y-3">
+              {explore.map((l) => (
+                <li key={l.path}>
+                  <Link
+                    to={l.path}
+                    className="text-sm text-accent-foreground/80 hover:text-primary transition-snappy"
+                  >
+                    {l.name}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          {/* Social Media */}
-          <div>
-            <h4 className="text-lg font-bold mb-4 text-primary">Connect With Us</h4>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="hover:text-primary transition-smooth"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="#"
-                className="hover:text-primary transition-smooth"
-                aria-label="Instagram"
-              >
-                <Instagram size={24} />
-              </a>
-              <a
-                href="#"
-                className="hover:text-primary transition-smooth"
-                aria-label="Facebook"
-              >
-                <Facebook size={24} />
-              </a>
-              <a
-                href="#"
-                className="hover:text-primary transition-smooth"
-                aria-label="Twitter"
-              >
-                <Twitter size={24} />
-              </a>
+          <div className="md:col-span-2">
+            <h4 className="text-xs uppercase tracking-[0.25em] text-primary mb-5">Company</h4>
+            <ul className="space-y-3">
+              {company.map((l) => (
+                <li key={l.path}>
+                  <Link
+                    to={l.path}
+                    className="text-sm text-accent-foreground/80 hover:text-primary transition-snappy"
+                  >
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="text-xs uppercase tracking-[0.25em] text-primary mb-5">Contact</h4>
+            <ul className="space-y-3 text-sm text-accent-foreground/80">
+              <li className="flex items-start gap-2">
+                <Mail className="w-4 h-4 mt-0.5 text-primary/80" />
+                hello@farys.ginger
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 text-primary/80" />
+                West Africa
+              </li>
+            </ul>
+            <div className="flex gap-3 mt-6">
+              {[Linkedin, Instagram, Facebook, Twitter].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-9 h-9 rounded-full border border-accent-foreground/15 flex items-center justify-center hover:border-primary hover:text-primary transition-snappy"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-accent-foreground/20 pt-6 text-center text-sm opacity-90">
-          <p>© {currentYear} Fary's Ginger Company. All Rights Reserved.</p>
+        <div className="pt-8 border-t border-accent-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-accent-foreground/55 uppercase tracking-[0.2em]">
+          <p>© {currentYear} Fary's Ginger Company</p>
+          <p>Pure · Organic · Powerful</p>
         </div>
       </div>
     </footer>
