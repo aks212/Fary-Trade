@@ -51,15 +51,15 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* HERO */}
-      <section className="relative -mt-[88px] h-screen min-h-[720px] overflow-hidden bg-espresso">
+      <section className="relative h-[calc(100vh-88px)] min-h-[640px] overflow-hidden bg-espresso">
         <Carousel
           opts={{ loop: true, align: "start" }}
           plugins={[Autoplay({ delay: 6000, stopOnInteraction: false })]}
           className="h-full"
         >
-          <CarouselContent className="h-screen min-h-[720px] -ml-0">
+          <CarouselContent className="h-[calc(100vh-88px)] min-h-[640px] -ml-0">
             {heroSlides.map((slide, index) => (
-              <CarouselItem key={index} className="h-screen min-h-[720px] pl-0 basis-full">
+              <CarouselItem key={index} className="h-[calc(100vh-88px)] min-h-[640px] pl-0 basis-full">
                 <div className="relative h-full w-full">
                   <div className="absolute inset-0 overflow-hidden">
                     <img

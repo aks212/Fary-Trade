@@ -33,8 +33,8 @@ const Header = () => {
     <header
       className={`sticky top-0 z-50 transition-smooth ${
         scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border/60 shadow-elegant"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border/60 shadow-elegant"
+          : "bg-background/70 backdrop-blur-md border-b border-border/30"
       }`}
     >
       <nav className="container mx-auto px-6 lg:px-10 py-4">
